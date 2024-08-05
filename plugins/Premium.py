@@ -5,7 +5,7 @@ from datetime import timedelta
 import pytz
 import datetime, time
 from Script import script 
-from info import ADMINS, PREMIUM_LOGS
+from info import ADMINS, PREMIUM_LOGS, PAYMENT_ADMIN_USERNAME
 from utils import get_seconds
 from database.users_chats_db import db 
 from pyrogram import Client, filters 
@@ -147,7 +147,7 @@ async def plan(client, message):
     users = message.from_user.mention 
     btn = [[
 	
-        InlineKeyboardButton("📲 ꜱᴇɴᴅ ᴘᴀʏᴍᴇɴᴛ ꜱᴄʀᴇᴇɴꜱʜᴏᴛ ʜᴇʀᴇ", user_id=int(767250672))],[InlineKeyboardButton("❌ ᴄʟᴏꜱᴇ ❌", callback_data="close_data")
+        InlineKeyboardButton("📲 ꜱᴇɴᴅ ᴘᴀʏᴍᴇɴᴛ ꜱᴄʀᴇᴇɴꜱʜᴏᴛ ʜᴇʀᴇ", url=f"https://t.me/{PAYMENT_ADMIN_USERNAME}")],[InlineKeyboardButton("❌ ᴄʟᴏꜱᴇ ❌", callback_data="close_data")
     ]]
     await message.reply_photo(photo="https://telegra.ph/file/734170f40b8169830d821.jpg", caption=script.PREMIUM_TEXT.format(message.from_user.mention), reply_markup=InlineKeyboardMarkup(btn))
     
