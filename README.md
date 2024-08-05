@@ -101,13 +101,14 @@ restart - ʀᴇꜱᴛᴀʀᴛ ᴛʜᴇ ʙᴏᴛ...
 * `CHANNELS`: ID of channel for Auto Indexing. Separate multiple IDs by space. Make sure bot is admin.
 * `ADMINS`: ID of Admin. Separate multiple Admins by space.
 * `DATABASE_URI`: [mongoDB](https://www.mongodb.com) URI. Get this value from [mongoDB](https://www.mongodb.com). For more help watch this [video](https://youtu.be/1G1XwEOnxxo)
+* `SECONDDB_URI`: URI of the second database. Same as `DATABASE_URI` but use a different MongoDB URI.
 * `DATABASE_NAME`: Name of the database in [mongoDB](https://www.mongodb.com).
 * `LOG_CHANNEL` : A channel to log the activities of bot. Make sure bot is an admin in the channel.
 
 <details><summary>Deploy To Heroku</summary>
 <p>
 <br>
-<a href="https://heroku.com/deploy?template=https://github.com/HarshalPurohitEdits/TheMovieProviderBot">
+<a href="https://heroku.com/deploy?template=https://github.com/soniya709/SONIYAXFILTER-V3.1">
   <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy To Heroku">
 </a>
 </p>
@@ -119,7 +120,7 @@ restart - ʀᴇꜱᴛᴀʀᴛ ᴛʜᴇ ʙᴏᴛ...
 <br>
 <br>
 
-[![Deploy to Koyeb](https://www.koyeb.com/static/images/deploy/button.svg)](https://app.koyeb.com/deploy?type=git&repository=github.com/HarshalPurohitEdits/TheMovieProviderBot&branch=main&name=TheMovieProviderBot )
+[![Deploy to Koyeb](https://www.koyeb.com/static/images/deploy/button.svg)](https://app.koyeb.com/deploy?type=git&repository=github.com/soniya709/SONIYAXFILTER-V3.1&branch=master&name=SONIYAXFILTER-ROBOT )
 </details>
 
 <details><summary>Deploy To Render</summary>
@@ -146,7 +147,7 @@ Use these settings when adding a monitor:</b>
 <b>Click on the below button to deploy directly to render ↓</b>
 <br>
 <br>
-<a href="https://render.com/deploy?repo=https://github.com/HarshalPurohitEdits/TheMovieProviderBot/tree/main">
+<a href="https://render.com/deploy?repo=https://github.com/soniya709/SONIYAXFILTER-V3.1/tree/master">
 <img src="https://render.com/images/deploy-to-render-button.svg" alt="Deploy to Render">
 </a>
 </details>
@@ -154,7 +155,7 @@ Use these settings when adding a monitor:</b>
 <details><summary>Deploy To VPS</summary>
 <p>
 <pre>
-git clone https://github.com/HarshalPurohitEdits/TheMovieProviderBot
+git clone https://github.com/soniya709/SONIYAXFILTER-V3.1
 # Install Packages
 pip3 install -U -r requirements.txt
 Edit info.py with variables as given below then run bot
