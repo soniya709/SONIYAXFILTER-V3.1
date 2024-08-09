@@ -1,197 +1,210 @@
-<!-- this code is written by @biisal tg:biisal-files  -->
-<!-- stealing credit doesn't make you developer..so try to give full credit to the developer 😊 u will not loose anything for giving proper credit.instead  -->
-
-
+<!-- (c) ps_updates -->
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+    <!-- Metadata and page configuration -->
     <meta charset="UTF-8">
+    <meta property="og:image" content="https://i.ibb.co/M8S0Zzj/live-streaming.png" itemprop="thumbnailUrl">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{file_name}}</title>
-    <link rel="stylesheet" href="https://unpkg.com/sheryjs/dist/Shery.css" />
-    <link rel="stylesheet" href="https://aeditx03.github.io/resources/StreamCSS.css">
-    <link rel="stylesheet" href="https://aeditx03.github.io/resources/playerCss.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>%s</title> <!-- The title of the page, replaced dynamically with %s -->
 
+    <!-- Importing Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway|Delius">
+    
+    <!-- Importing external CSS for the Plyr video player and custom styles -->
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.6.12/plyr.css"/>
+    <link rel="stylesheet" href="styles.css"/> <!-- Link to the external CSS file -->
 </head>
-<!-- this code is written by @biisal tg:biisal-files  -->
-<!-- stealing credit doesn't make you developer..so try to give full credit to the developer 😊 u will not loose anything for giving proper credit.instead  -->
 
 <body>
-    <nav>
-        <div class="nleft">
-            <a href="https://t.me/TheMovieProviderBot">
-                <!-- if u are trying to change the header name please remove the title text from bottom line  -->
-                <h4 id="heading" style="z-index: 100;" class="magnet">MOVIE PROVIDER</h4>
-            </a>
+
+    <!-- Main content container -->
+    <div class="set-container">
+        <!-- Header section with a marquee (scrolling text) -->
+    <div class="container">
+        <header>
+            <marquee>
+                <div id="file-name">%s</div> <!-- Dynamic file name in marquee -->
+            </marquee>
+        </header>
+        <div class="player-wrapper">
+            <tag src="%s" class="player"></tag> <!-- Video player placeholder -->
         </div>
-        <div class="nryt">
-            <a class="home-btn magnet" href="#main" onclick="toggleWidthnav(this)">HOME</a>
+    </div>
 
-            <a href="#sec1" class="about-btn magnet" onclick="toggleWidthnav(this)">ABOUT</a>
+        <!-- Stream options section -->
+        <!-- Updated Stream Options text with styling -->
+        <div class="stream-options-title">
+          <strong>Stream Options:</strong>
+         </div>
+         <div id="button-container">
+             <!-- VLC button -->
+              <button id="vlc-btn" onclick="playOnline()">
+                <img src="https://i.ibb.co/GtnGhBV/videolan-vlc-logo-icon-170258.png" alt="vlc_logo" width="110px" height="40px"/>
+              </button>
+              <!-- MX Player button -->
+              <button id="mx-btn" onclick="playOnlineMx()">
+                 <img src="https://i.ibb.co/djV3Fn8/mxlogo.png" alt="mx_logo" width="120px">
+              </button>
+         </div>
+            <div id="button-container">
+                <!-- SPlayer button -->
+                <button id="sp-btn" onclick="playOnlinesp()">
+                    <img src="https://i.ibb.co/vZxWgz5/ZKTgV9HV.png" alt="splayer_logo" width="130px">
+                </button>
+                <!-- PlayIt button -->
+                <button id="pi-btn" onclick="playOnlinepi()">
+                    <img src="https://i.ibb.co/JsDNHgz/c0C4vnAa.png" alt="playit_logo" width="140px">
+                </button>
+            </div>
+        <!--</div> -->
+
+        <!-- Download section -->
+        <div id="button-container2">
+    <button id="dl-btn" onclick="download()">
+       <img src="https://i.ibb.co/Kzhbv5J/download-icon.png" alt="Download Icon" style="width:20px; height:20px; vertical-align: middle;"> Download Now
+    </button>
+</div>
+
+        
+
+        <!-- Information and channel promotion -->
+        <div class="mainupdates">
+            <center>
+                <div style="margin-bottom: 20px;">
+                    This website only provides a service that helps you play your videos online without downloading. It does not offer storage or dissemination functions. You can report videos that contain issues such as copyright infringement, explicit content, etc.
+                <p>
+                <b>Note:</b> If you find any broken link, please report to my 
+            </p>
+                </div>
+                <div style="margin-bottom: 20px;">
+                    <a href="https://telegram.me/CodeXSupport" class="support-button">Contact Support</a>
+                </div>
+            </center>
         </div>
-    </nav>
-    <center>
-        <div class="about-nav">
-            <a href="#sec1" class="wlcm magnet" onclick="toggleWidth(this)">WELCOME</a>
-            <a href="#sec2" class="abt-chnl magnet" onclick="toggleWidth(this)">CHANNELS</a>
-            <a href="#sec3" class="magnet bot-btn" onclick="toggleWidth(this) , bot_btn_clicked()">BOTS</a>
-            <a href="#sec4" class="magnet contact-btn" onclick="toggleWidth(this)">LET'S TALK</a>
-        </div>
-    </center>
-    <!-- this code is written by @biisal tg:biisal-files  -->
-    <!-- stealing credit doesn't make you developer..so try to give full credit to the developer 😊 u will not loose anything for giving proper credit.instead  -->
 
-    <div class="outer">
-        <div class="inner">
-            <div class="main" id="main">
-                <video id="player" class="player" src="{{file_url}}" type="video/mp4" playsinline controls
-                    width="100%"></video>
-                <div class="player"></div>
-                <div class="file-name">
-                    <h4>File name : </h4>
-                    <br>
-                    <p id="myDiv">{{file_name}}</p>
-                </div>
-                <div class="downloadBtn">
-                    <button class="magnet" onclick="vlc_player()"><img src="https://i.postimg.cc/15TQ4y7B/vlc.png"
-                            alt="">watch in VLC PLAYER</button>
-                    <button class="magnet" onclick="mx_player()"><img src="https://i.postimg.cc/sx4Msv4T/mx.png"
-                            alt="">watch in MX PLAYER</button>
-                    <button class="magnet" onclick="playit_player()"><img src="https://i.postimg.cc/RVGWYJFF/playit.png"
-                            alt="">watch in PLAYit
-                        PLAYER</button>
-                    <button class="magnet" onclick="km_player()"><img src="https://i.postimg.cc/wT9tFQ9Z/km.png"
-                            alt="">watch in KM PLAYER</button>
-                    <button class="magnet" onclick="s_player()"><img src="https://i.postimg.cc/XYJr6NGg/s.png"
-                            alt="">watch in S PLAYER</button>
-                    <button class="magnet" onclick="hd_player()"><img src="https://i.postimg.cc/rFT43LNh/hd.png"
-                            alt="">watch in HD
-                        PLAYER(4K)</button>
-                    <button class="magnet" onclick="bisalDownload()"><img style="height: 35px;"
-                            src="https://i.postimg.cc/Zncc9YLq/Pngtree-download-icon-3581467.png" alt="">download video
-                    </button>
-                </div>
+    <!-- Plyr video player script -->
+    <script src="https://cdn.plyr.io/3.6.12/plyr.js"></script>
+    <script>
+        // Video player controls configuration
+        const controls = [
+            'play-large', 'rewind', 'play', 'fast-forward', 
+            'progress', 'current-time', 'duration', 'settings', 'fullscreen'
+        ];
 
-            </div>
-            <div class="abt">
-                <div class="about">
-                    <div class="about-dets">
-                        <div class="abt-sec" id="sec1" style="padding: 160px 30px;">
-                            <h1 style="text-align: center;">WELCOME TO OUR                  <Span>STREAMING WEBSITE</Span></h1>
-                            <p style="text-align: center; line-height: 2;word-spacing: 2px;  letter-spacing: 0.8px;">
-                                We're
-                                thrilled to have <span>you</span> here.
-                                Get ready for an
-                                amazing <span>experience</span>
-                                filled with <span>entertainment</span>, <span>fun</span>, and <span>surprises</span>.
-                                Grab
-                                your snacks, sit back, and <span>enjoy</span> the show !
-                            </p>
-                        </div>
-                        <div class="abt-sec" id="sec2">
-                            <h1>OUR ALL <span>CHANNELS</span> LIST</h1>
-                            <div class="links chnl-link">
-                                <a class="magnet" href="https://t.me/HP_MOVIES_WORLD"><button>HP MOVIES 
-                                        WORLD</button></a>
-                                <a class="magnet" href="https://t.me/MoviesLinkSearchBot2"><button>MOVIE SEARCH 
-                                        BOT²</button></a>
-                                <a class="magnet" href="https://t.me/MoviesLinkSearchBot3"><button>MOVIE SEARCH 
-                                        BOT³</button></a>
-                                <a class="magnet" href="https://t.me/HpMovieReqest"><button>MOVIE REQUEST 
-                                        GROUP</button></a>
-                                <a class="magnet" href="https://t.me/+_mQHFKrbsiQyOTQ1"><button>HP REQUEST 
-                                        LOGS</button></a>
-                            </div>
-                        </div>
-                        <div class="abt-sec" id="sec3">
-                            <h1>OUR ALL <span>BOTS</span> LIST</h1>
-                            <div class="links bot-link">
-                                <a class="magnet" href="https://t.me/TheMovieProviderBot"><button>THE MOVIE
-                                        PROVIDER</button></a>
-                            </div>
-                        </div>
-                        <div class="abt-sec" id="sec4">
-                            <!-- this code is written by @biisal tg:biisal-files  -->
-                            <!-- stealing credit doesn't make you developer..so try to give full credit to the developer 😊 u will not loose anything for giving proper credit.instead  -->
-
-                            <p style="text-align: center;">YOU CAN <Span>TALK</Span> WITH US FOR YOUR <Span>SUPPORT</Span> AND YOU CAN <Span>REPORT</Span> THROUGH
-                                TELEGRAM</p>
-                            <div class="links contact">
-                                <a href="https://t.me/HpRequestBot"><button>CONTACT US</button></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <footer>
-            <div class="mid">
-                <h1 class="mid-text">VISIT <a href="#sec3" onclick="bot_btn_clicked()"><span>OUR BOT</span></a>
-                    FOR
-                    MORE
-                    INFO</h1>
-            </div>
-
-            <div class="last-text">
-                <p class="text-center pb-20 pr-6 pl-6 absolute" style="font-weight: 500;">
-                    Welcome to our online streaming platform! Our website allows users to generate streamable links for
-                    various files using Telegram bot. Please note that we are not responsible for the content shared or
-                    streamed through our service. Users are encouraged to respect copyright laws and adhere to our
-                    community
-                    guidelines. Enjoy easy, hassle-free file streaming service.
-                </p>
-            </div>
-
-            <!-- this code is written by @biisal tg:biisal-files  -->
-            <!-- stealing credit doesn't make you developer..so try to give full credit to the developer 😊 u will not loose anything for giving proper credit.instead  -->
-
-
-
-            <div class="copyright ">
-                <h5 class="text-center">Copyright © 2023 <a href="https://t.me/DeletedFromEarth"><span
-                            style="font-weight: 700;">HP</span></a>. All
-                    Rights Reserved.</h5>
-                <div class="icons">
-                    <a href="https://github.com/HarshalPurohitEdits"><i class="fa-brands fa-github fa-lg"></i></a>
-                    <a href="https://t.me/bisal_Files"><i class="fa-brands fa-telegram fa-lg"></i></a>
-                </div>
-                <h4 style="font-weight: 700;">This Page Is Designed By <a
-                        href="https://t.me/DeletedFromEarth"><span>HP</span></a></h4>
-            </div>
-        </footer>
-</body>
-
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.155.0/three.min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/automat/controlkit.js@master/bin/controlKit.min.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sheryjs/dist/Shery.js"></script>
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const uncopyableElement = document.querySelector(".uncopyable");
-
-        uncopyableElement.addEventListener("selectstart", function (event) {
-            event.preventDefault();
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initialize the Plyr video player when the document is loaded
+            const player = Plyr.setup('.player', { controls });
         });
-    });
-</script>
-<script src="js/wow.min.js"></script>
-<script>
-    new WOW().init();
-</script>
-<script src="https://cdn.plyr.io/3.6.9/plyr.js"></script>
-<script src="https://aeditx03.github.io/resources/StreamJs.js"></script>
 
+        // JavaScript functions for various button actions
+        const currentUrl = window.location.href; // Get the current page URL
+        const finalUrl = currentUrl.replace("/watch/", "/"); // Modify the URL as needed
+
+        // Function to play video in VLC Player
+        function playOnline() {
+            const vlcUrl = `vlc://${finalUrl}`;
+            window.location.href = vlcUrl;
+        }
+
+        // Function to play video in MX Player
+        function playOnlineMx() {
+            const mxUrl = `intent:${finalUrl}#Intent;package=com.mxtech.videoplayer.ad;end`;
+            window.location.href = mxUrl;
+        }
+
+        // Function to play video in SPlayer
+        function playOnlinesp() {
+            const spUrl = `intent:${finalUrl}#Intent;action=com.young.simple.player.playback_online;package=com.young.simple.player;end`;
+            window.location.href = spUrl;
+        }
+
+        // Function to play video in PlayIt Player
+        function playOnlinepi() {
+            const piUrl = `playit://playerv2/video?url=${finalUrl}&amp;title={{file_name}}`;
+            window.location.href = piUrl;
+        }
+
+        // Function to download the video
+        function download() {
+            window.location.href = finalUrl;
+        }
+
+        // Function to handle a modal for Telegram actions
+        function openModalTG() {
+            const modal = document.getElementById("myModal");
+            modal.style.display = "block";
+
+            const words = [
+                "Received File request...✅",
+                "Processing your request...⌛",
+                "Generating your link...🔗",
+                "Sending link to you...🚀",
+                "Redirecting To Telegram...😉"
+            ];
+
+            let index = 0;
+            const timerElement = document.getElementById("timer");
+            timerElement.innerText = words[index];
+
+            const timer = setInterval(() => {
+                index++;
+                if (index < words.length) {
+                    timerElement.innerText = words[index];
+                } else {
+                    clearInterval(timer);
+                    TGre();
+                    modal.style.display = "none";
+                }
+            }, 1000);
+        }
+
+        // Function to redirect to Telegram link
+        function TGre() {
+            const tglink = ""; // Replace with your Telegram link if needed
+            window.location.href = tglink;
+        }
+
+        // Function to handle a general modal (e.g., for download actions)
+        function openModal() {
+            const modal = document.getElementById("myModal");
+            modal.style.display = "block";
+
+            const words = [
+                "Received Download request...✅",
+                "Processing your request...⌛",
+                "Generating your link...🔗",
+                "Sending link to you...🚀",
+                "Download has started...😉"
+            ];
+
+            let index = 0;
+            const timerElement = document.getElementById("timer");
+            timerElement.innerText = words[index];
+
+            const timer = setInterval(() => {
+                index++;
+                if (index < words.length) {
+                    timerElement.innerText = words[index];
+                } else {
+                    clearInterval(timer);
+                    download();
+                    modal.style.display = "none";
+                }
+            }, 1000);
+        }
+    </script>
+
+    
+    
+    <!-- Footer section with additional information and copyright notice -->
+    <footer class="footer">
+        <p>&copy; Copyright 2024<br>All Rights Reserved by 
+            <a href="https://telegram.me/CodeXSupport" class="footer-link">𝙏𝙃𝙀 𝙋𝙎 𝘽𝙊𝙏𝙎</a>
+        </p>
+    </footer>
+</body>
 </html>
-
-<!-- this code is written by @biisal tg:biisal-files  -->
-<!-- stealing credit doesn't make you developer..so try to give full credit to the developer 😊 u will not loose anything for giving proper credit.instead  -->
+    
