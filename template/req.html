@@ -1,0 +1,327 @@
+<!-- (c) CodeXBots -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Metadata and page configuration -->
+    <meta charset="UTF-8">
+    <meta property="og:image" content="https://i.ibb.co/M8S0Zzj/live-streaming.png" itemprop="thumbnailUrl">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>%s</title> <!-- The title of the page, replaced dynamically with %s -->
+
+    <!-- Importing Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway|Delius">
+    
+    <!-- Importing external CSS for the Plyr video player -->
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.6.12/plyr.css"/>
+
+    <!-- Custom styles -->
+    <style>
+        /* Basic body styling */
+        body {
+            font-family: 'Raleway', sans-serif; /* Font family */
+            font-size: 16px; /* Default font size */
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4; /* Light gray background */
+            color: #333; /* Dark gray text color */
+        }
+        
+        /* Styling for the scrolling text at the top */
+        marquee {
+            font-size: 22px;
+            color: black;
+            background-color: #808080; /* Gray background for marquee */
+            font-family: 'Delius', serif; /* Different font for marquee */
+        }
+        
+        /* Container that wraps around the main content */
+        .set-container {
+            padding: 15px;
+        }
+        
+        /* General container style */
+        .container {
+            margin: 0 1px;
+            overflow: hidden;
+        }
+        
+        /* Box style for individual sections */
+        .containerbox, .mainupdates {
+            margin-bottom: 20px;
+            padding: 10px;
+            border-radius: 8px; /* Rounded corners */
+            background-color: #ffffff; /* White background */
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Slight shadow for depth */
+        }
+        
+       
+        /*Light black (dark gray) background for the info box */
+        #info-box p {
+            border: 1px solid #64D8CB; /* Soft Teal border */
+            border-radius: 10px;
+            padding: 10px;
+            margin: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Slight shadow */
+            background-color: #64D8CB; /* Soft Teal background */
+            color: #000000; /* Black text color */
+        }
+
+        #info-box p a {
+            color: #0000ff; /* Yellow color for the link */
+            font-weight: bold; /* Make the link bold */
+        }
+        
+        /* Container for buttons in the first section */
+        #button-container1, #button-container2 {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between; /* Space out buttons evenly */
+            margin: 10px 0;
+        }
+        
+        /* General button style */
+        #button-container1 button, #button-container2 button {
+            flex: 1; /* Allows the button to grow/shrink based on available space */
+            margin: 5px;
+            height: 40px;
+            font-size: 16px;
+            border: none; /* Removes default border */
+            border-radius: 4px; /* Rounded corners */
+            cursor: pointer; /* Pointer cursor on hover */
+            transition: all 0.3s; /* Smooth transition effects */
+            color: white; /* White text color */
+        }
+        
+        /* Specific styles for buttons in container 1 */
+        #button-container1 button {
+            background-color: lavender; /* Lavender background */
+            color: black; /* Black text color */
+        }
+        
+        /* Specific styles for buttons in container 2 */
+        #button-container2 button {
+            background-color: #2D76FF; /* Blue background */
+        }
+        
+        /* Hover effect for all buttons */
+        #button-container1 button:hover, #button-container2 button:hover {
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Slight shadow on hover */
+        }
+        
+        /* Footer styling */
+        footer {
+            padding: 30px 10px;
+            text-align: center; /* Centered text */
+            background-color: #333; /* Dark background */
+            color: #7b89a3; /* Light gray text */
+            font-size: 12px;
+            border-top: 1px solid #c2cee3; /* Top border */
+        }
+
+        /* Footer link styling */
+        footer a {
+            color: red; /* Red color for links */
+            text-decoration: none; /* No underline */
+        }
+
+        footer p {
+            margin: 5px 0; /* Small margin around paragraphs */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Main content container -->
+    <div class="set-container">
+        
+        <!-- Header section with a marquee (scrolling text) -->
+        <div class="container">
+            <header>
+                <marquee>
+                    <div id="file-name">%s</div> <!-- Dynamic file name in marquee -->
+                </marquee>
+            </header>
+            <tag src="%s" class="player"></tag> <!-- Video player placeholder -->
+        </div>
+
+        <!-- Stream options section -->
+        <div class="containerbox">
+            <!-- Updated Stream Options text with styling -->
+            <div class="stream-options-title">
+               <strong>Stream Options:</strong>
+             </div>
+            <!--- <div style="margin-bottom: 10px;">Stream Options:</div>--->
+            <div id="button-container1">
+                <!-- VLC button -->
+                <button id="vlc-btn" onclick="playOnline()">
+                    <img src="https://i.ibb.co/GtnGhBV/videolan-vlc-logo-icon-170258.png" alt="vlc_logo" width="110px" height="40px"/>
+                </button>
+                <!-- MX Player button -->
+                <button id="mx-btn" onclick="playOnlineMx()">
+                    <img src="https://i.ibb.co/djV3Fn8/mxlogo.png" alt="mx_logo" width="120px">
+                </button>
+            </div>
+            <div id="button-container1">
+                <!-- SPlayer button -->
+                <button id="sp-btn" onclick="playOnlinesp()">
+                    <img src="https://i.ibb.co/vZxWgz5/ZKTgV9HV.png" alt="splayer_logo" width="130px">
+                </button>
+                <!-- PlayIt button -->
+                <button id="pi-btn" onclick="playOnlinepi()">
+                    <img src="https://i.ibb.co/JsDNHgz/c0C4vnAa.png" alt="playit_logo" width="140px">
+                </button>
+            </div>
+        </div>
+
+        <!-- Download section -->
+        <div class="containerbox">
+            <div id="button-container2">
+                <button id="dl-btn" onclick="download()">
+                    <i class="fas fa-download"></i> Download Now <!-- Download button -->
+                </button>
+            </div>
+        </div>
+
+        <!-- Information box -->
+        <div class="containerbox">
+          <div id="info-box">
+            <p>
+              <b>Note:</b> If you find any broken link, please report to my 
+              <a href="https://telegram.me/CodeXSupport"><b>support team</b></a>.
+            </p>
+          </div>
+        </div>
+
+
+        <!-- Telegram channel promotion -->
+        <div class="mainupdates">
+            <center>
+                <div style="margin-bottom: 20px;">Join Our Main Channel For More Updates 💖</div>
+                <h3><b><a href="https://telegram.me/RahulReviews"><img src="https://img.shields.io/badge/Main-Channel-blueviolet?style=for-the-badge" alt="Channel"></a></b></h3>
+            </center>
+        </div>
+    </div>
+
+    <!-- Plyr video player script -->
+    <script src="https://cdn.plyr.io/3.6.12/plyr.js"></script>
+    <script>
+        // Video player controls configuration
+        const controls = [
+            'play-large', 'rewind', 'play', 'fast-forward', 
+            'progress', 'current-time', 'duration', 'settings', 'fullscreen'
+        ];
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initialize the Plyr video player when the document is loaded
+            const player = Plyr.setup('.player', { controls });
+        });
+
+        // JavaScript functions for various button actions
+        const currentUrl = window.location.href; // Get the current page URL
+        const finalUrl = currentUrl.replace("/watch/", "/"); // Modify the URL as needed
+
+        // Function to play video in VLC Player
+        function playOnline() {
+            const vlcUrl = `vlc://${finalUrl}`;
+            window.location.href = vlcUrl;
+        }
+
+        // Function to play video in MX Player
+        function playOnlineMx() {
+            const mxUrl = `intent:${finalUrl}#Intent;package=com.mxtech.videoplayer.ad;end`;
+            window.location.href = mxUrl;
+        }
+
+        // Function to play video in SPlayer
+        function playOnlinesp() {
+            const spUrl = `intent:${finalUrl}#Intent;action=com.young.simple.player.playback_online;package=com.young.simple.player;end`;
+            window.location.href = spUrl;
+        }
+
+        // Function to play video in PlayIt Player
+        function playOnlinepi() {
+            const piUrl = `playit://playerv2/video?url=${finalUrl}&amp;title={{file_name}}`;
+            window.location.href = piUrl;
+        }
+
+        // Function to download the video
+        function download() {
+            window.location.href = finalUrl;
+        }
+
+        // Function to handle a modal for Telegram actions
+        function openModalTG() {
+            const modal = document.getElementById("myModal");
+            modal.style.display = "block";
+
+            const words = [
+                "Received File request...✅",
+                "Processing your request...⌛",
+                "Generating your link...🔗",
+                "Sending link to you...🚀",
+                "Redirecting To Telegram...😉"
+            ];
+
+            let index = 0;
+            const timerElement = document.getElementById("timer");
+            timerElement.innerText = words[index];
+
+            const timer = setInterval(() => {
+                index++;
+                if (index < words.length) {
+                    timerElement.innerText = words[index];
+                } else {
+                    clearInterval(timer);
+                    TGre();
+                    modal.style.display = "none";
+                }
+            }, 1000);
+        }
+
+        // Function to redirect to Telegram link
+        function TGre() {
+            const tglink = ""; // Replace with your Telegram link if needed
+            window.location.href = tglink;
+        }
+
+        // Function to handle a general modal (e.g., for download actions)
+        function openModal() {
+            const modal = document.getElementById("myModal");
+            modal.style.display = "block";
+
+            const words = [
+                "Received Download request...✅",
+                "Processing your request...⌛",
+                "Generating your link...🔗",
+                "Sending link to you...🚀",
+                "Download has started...😉"
+            ];
+
+            let index = 0;
+            const timerElement = document.getElementById("timer");
+            timerElement.innerText = words[index];
+
+            const timer = setInterval(() => {
+                index++;
+                if (index < words.length) {
+                    timerElement.innerText = words[index];
+                } else {
+                    clearInterval(timer);
+                    download();
+                    modal.style.display = "none";
+                }
+            }, 1000);
+        }
+    </script>
+
+    <!-- Footer section with additional information and copyright notice -->
+    <footer>
+        <p>This website only provides a service that helps you play your videos online without downloading. It does not offer storage or dissemination functions. You can report videos that contain issues such as copyright infringement, explicit content, etc. <a href="https://telegram.me/CodeXBro"><b>Report</b></a></p>
+        <p>&copy; Copyright 2024<br>All Rights Reserved</p>
+    </footer>
+</body>
+
+</html>
+
